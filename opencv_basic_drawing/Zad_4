@@ -1,0 +1,17 @@
+import numpy as np
+import cv2
+
+canvas = np.zeros((300, 300, 3), dtype="uint8")
+center = (canvas.shape[1] // 2, canvas.shape[0] // 2)
+
+# Kwadrat 100x100 wycentrowany
+top_left = (center[0] - 50, center[1] - 50)
+bottom_right = (center[0] + 50, center[1] + 50)
+cv2.rectangle(canvas, top_left, bottom_right, (0, 255, 0), 2)
+
+# Okrąg w środku kwadratu
+cv2.circle(canvas, center, 30, (0, 0, 255), 2)
+
+cv2.imshow("Figura złożona", canvas)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

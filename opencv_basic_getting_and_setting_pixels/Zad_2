@@ -1,0 +1,20 @@
+import cv2
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    cv2.imshow("Przed zmianą", image)
+
+    # Prawy dolny róg
+    h, w = image.shape[:2]
+    image[h-1, w-1] = (0, 0, 255)
+
+    (b, g, r) = image[h-1, w-1]
+    print(f"Zmieniony piksel ({w-1},{h-1}) - Red: {r}, Green: {g}, Blue: {b}")
+
+    cv2.imshow("Po zmianie", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

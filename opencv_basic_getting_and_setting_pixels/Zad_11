@@ -1,0 +1,24 @@
+import cv2
+import numpy as np
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    # Konwersja do skali szarości
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # Szukamy największej jasności
+    minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(gray)
+
+    print(f"🌟 Najjaśniejszy piksel: współrzędne {maxLoc}, wartość jasności: {maxVal}")
+
+    # Podświetlenie piksela (na czerwono)
+    highlighted = image.copy()
+    cv2.circle(highlighted, maxLoc, 5, (0, 0, 255), 2)
+
+    cv2.imshow("Najjaśniejszy piksel", highlighted)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

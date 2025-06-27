@@ -1,0 +1,17 @@
+import cv2
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    h, w = image.shape[:2]
+    part_h, part_w = h // 3, w // 3
+
+    # Wycięcie środkowego obszaru
+    center = image[part_h:2*part_h, part_w:2*part_w]
+
+    cv2.imshow("Środek obrazu (1/9)", center)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

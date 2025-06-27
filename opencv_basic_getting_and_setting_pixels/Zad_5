@@ -1,0 +1,17 @@
+import cv2
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    h, w = image.shape[:2]
+    cX, cY = w // 2, h // 2
+
+    # Kolorowanie lewej górnej ćwiartki na niebiesko (BGR: 255, 0, 0)
+    image[0:cY, 0:cX] = (255, 0, 0)
+
+    cv2.imshow("Lewa górna ćwiartka = niebieska", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

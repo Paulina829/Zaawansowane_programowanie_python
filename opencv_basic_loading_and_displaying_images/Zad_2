@@ -1,0 +1,25 @@
+import cv2
+
+# Ścieżka do pliku (zmień na odpowiednią, jeśli inna lokalizacja)
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+
+# Wczytaj obraz w kolorze
+image = cv2.imread(path)
+
+# Sprawdzenie poprawności wczytania
+if image is None:
+    print("❌ Błąd: nie można wczytać obrazu!")
+else:
+    print("✅ Obraz wczytano poprawnie.")
+
+    # Sprawdzenie liczby kanałów
+    if len(image.shape) == 3:
+        height, width, channels = image.shape
+        print(f"Szerokość: {width}px, wysokość: {height}px, liczba kanałów: {channels}")
+    else:
+        print("⚠️ To nie jest obraz kolorowy (brak kanałów kolorowych).")
+
+    # Wyświetlenie obrazu
+    cv2.imshow("Obraz kolorowy", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

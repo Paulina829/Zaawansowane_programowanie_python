@@ -1,0 +1,16 @@
+import cv2
+
+# Ścieżka do obrazu
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+
+# Wczytanie obrazu
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Błąd: nie można wczytać obrazu!")
+else:
+    # Okno z możliwością zmiany rozmiaru
+    cv2.namedWindow("Obraz z możliwością zmiany rozmiaru", cv2.WINDOW_NORMAL)
+    cv2.imshow("Obraz z możliwością zmiany rozmiaru", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

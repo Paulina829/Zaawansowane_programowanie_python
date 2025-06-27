@@ -1,0 +1,14 @@
+import cv2
+import imutils
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\profilowe.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obraz.")
+else:
+    shifted = imutils.translate(image, 100, 50)
+
+    cv2.imshow("Przesunięcie z imutils (100 prawo, 50 dół)", shifted)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

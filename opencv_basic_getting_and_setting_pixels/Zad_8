@@ -1,0 +1,20 @@
+import cv2
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obraz.")
+else:
+    h = image.shape[0]
+    row = 100
+
+    if row < h:
+        cv2.imshow("Przed", image.copy())
+        image[row, :] = (0, 255, 0)  # zielony
+        cv2.imshow("Po zmianie 100. wiersza", image)
+    else:
+        print(f"❌ Wiersz {row} przekracza wysokość obrazu ({h}px).")
+
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

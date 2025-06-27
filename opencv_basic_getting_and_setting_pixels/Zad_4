@@ -1,0 +1,22 @@
+import cv2
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    h, w = image.shape[:2]
+
+    x = int(input("Podaj współrzędną X: "))
+    y = int(input("Podaj współrzędną Y: "))
+
+    if 0 <= x < w and 0 <= y < h:
+        image[y, x] = (0, 0, 0)
+        print(f"✅ Piksel ({x},{y}) ustawiony na czarny.")
+    else:
+        print("❌ Współrzędne poza zakresem obrazu.")
+
+    cv2.imshow("Obraz", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

@@ -1,0 +1,27 @@
+import cv2
+
+# Ścieżka do zdjęcia (zmień na własną)
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\profilowe.jpg"
+
+# Wczytanie obrazu
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać zdjęcia.")
+else:
+    print("✅ Obraz załadowany pomyślnie.")
+
+    # Zasłoń oczy (przykładowe współrzędne)
+    cv2.circle(image, (110, 100), 15, (0, 0, 255), -1)  # lewe oko
+    cv2.circle(image, (190, 100), 15, (0, 0, 255), -1)  # prawe oko
+
+    # Zasłoń usta
+    cv2.rectangle(image, (120, 160), (180, 180), (0, 255, 0), -1)
+
+    # Obramuj twarz (w przybliżeniu)
+    cv2.circle(image, (150, 130), 80, (255, 0, 0), 2)
+
+    # Wyświetlenie efektu
+    cv2.imshow("Zamaskowana twarz", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

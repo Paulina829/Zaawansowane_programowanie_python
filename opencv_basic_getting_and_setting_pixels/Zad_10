@@ -1,0 +1,15 @@
+import cv2
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    try:
+        (b1, g1, r1) = image[50, 50]
+        (b2, g2, r2) = image[200, 200]
+        print("Różnice pomiędzy pikselami (50,50) i (200,200):")
+        print(f"Red: {r2 - r1}, Green: {g2 - g1}, Blue: {b2 - b1}")
+    except IndexError:
+        print("❌ Jedna z pozycji pikseli znajduje się poza zakresem obrazu.")

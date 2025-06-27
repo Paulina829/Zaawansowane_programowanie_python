@@ -1,0 +1,25 @@
+import cv2
+
+# Ścieżki do dwóch obrazów
+path1 = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+path2 = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+
+# Wczytaj obrazy
+img1 = cv2.imread(path1)
+img2 = cv2.imread(path2)
+
+if img1 is None or img2 is None:
+    print("❌ Nie udało się wczytać jednego lub obu obrazów.")
+else:
+    # Wyświetl w osobnych oknach
+    cv2.imshow("Obraz 1", img1)
+    cv2.imshow("Obraz 2", img2)
+
+    # Pętla – zamyka, gdy oba okna zamknięte
+    while True:
+        key = cv2.waitKey(100)
+        if cv2.getWindowProperty("Obraz 1", cv2.WND_PROP_VISIBLE) < 1 and \
+           cv2.getWindowProperty("Obraz 2", cv2.WND_PROP_VISIBLE) < 1:
+            break
+
+    cv2.destroyAllWindows()

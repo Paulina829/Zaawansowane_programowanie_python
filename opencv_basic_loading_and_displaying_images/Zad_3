@@ -1,0 +1,20 @@
+import cv2
+
+# Ścieżka do obrazu w skali szarości
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+
+# Wczytanie obrazu w skali szarości
+image_gray = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+
+# Sprawdzenie poprawności wczytania
+if image_gray is None:
+    print("Błąd: nie można wczytać obrazu!")
+else:
+    print("Obraz wczytano poprawnie.")
+    print(f"Wymiary obrazu: {image_gray.shape}")
+    print("Liczba kanałów: 1 (obraz w skali szarości)")
+
+    # Wyświetlenie
+    cv2.imshow("Obraz w skali szarości", image_gray)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

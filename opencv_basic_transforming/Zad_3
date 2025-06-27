@@ -1,0 +1,16 @@
+import cv2
+import numpy as np
+
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\profilowe.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obraz.")
+else:
+    h, w = image.shape[:2]
+    M = np.float32([[1, 0, w // 2 + 50], [0, 1, h // 2 + 50]])
+    shifted = cv2.warpAffine(image, M, (w, h))
+
+    cv2.imshow("Duże przesunięcie", shifted)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

@@ -1,0 +1,17 @@
+import cv2
+
+# Ścieżka do obrazu
+path = r"C:\Users\pauli\Desktop\Zaawansowane_programowanie_python\kot-bombajski.jpg"
+image = cv2.imread(path)
+
+if image is None:
+    print("❌ Nie udało się wczytać obrazu.")
+else:
+    # Pobierz wartość piksela w lewym górnym rogu (0,0)
+    (b, g, r) = image[0, 0]
+    print(f"Pixel (0,0) - Red: {r}, Green: {g}, Blue: {b}")
+
+    # Pokaż obraz
+    cv2.imshow("Obraz", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
